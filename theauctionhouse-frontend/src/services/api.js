@@ -62,7 +62,6 @@ export const userService = {
       console.log('Sending signup request:', { ...userData, password: '[REDACTED]' });
       const response = await api.post('/User/signup', userData);
       console.log('Signup response:', response.data);
-      
       // Backend is sending { success: true, message: "User registered successfully" }
       // Just return it directly as it's already in the correct format
       return response.data;
@@ -71,11 +70,19 @@ export const userService = {
         status: error.response?.status,
         data: error.response?.data,
         message: error.message
-      });
+      });      // Try to extract the most specific error message from the backend
+      let errorMsg = error.response?.data?.error || error.response?.data?.message || error.message || 'Failed to create account';
+      
+      // If there are validation errors, append them
+      if (error.response?.data?.validationErrors && Array.isArray(error.response.data.validationErrors)) {
+        errorMsg += '\n' + error.response.data.validationErrors.map(v => v.ErrorMessage || v).join('\n');
+      }
+      
+      console.log('Formatted error response:', { success: false, error: errorMsg });
       
       return {
         success: false,
-        error: error.response?.data?.message || error.message || 'Failed to create account'
+        error: errorMsg
       };
     }
   },

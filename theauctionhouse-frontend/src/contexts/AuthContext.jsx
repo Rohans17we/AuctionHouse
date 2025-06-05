@@ -49,15 +49,16 @@ export const AuthProvider = ({ children }) => {
       };
     }
   };
-
   const signup = async (name, email, password) => {
     try {
       const response = await userService.signup({ name, emailId: email, password });
+      console.log('Signup response in AuthContext:', response);
       return { success: response.success, error: response.error };
     } catch (error) {
+      console.error('Signup error in AuthContext:', error);
       return { 
         success: false, 
-        error: error.response?.data?.error || 'An error occurred during signup' 
+        error: error.response?.data?.error || error.response?.data?.message || error.message || 'An error occurred during signup' 
       };
     }
   };

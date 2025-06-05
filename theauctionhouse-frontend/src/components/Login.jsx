@@ -58,15 +58,18 @@ const Login = () => {
       setLoading(false);
     }
   };
-
   const handleSignUp = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    try {      const response = await userService.signup(signupData);
-      if (response.data.success) {
-        // Switch to login after successful signup        setIsSignUp(false);
+    try {
+      const result = await userService.signup(signupData);
+      console.log('Signup result in Login component:', result);
+      
+      if (result.success) {
+        // Switch to login after successful signup
+        setIsSignUp(false);
         setFormData({
           emailId: signupData.emailId,
           password: signupData.password,
@@ -77,9 +80,13 @@ const Login = () => {
         if (!loginResult.success) {
           setError(loginResult.error || 'Login failed. Please try signing in again.');
         }
+      } else {
+        // Handle the error from the signup service
+        setError(result.error || 'Sign up failed. Please try again.');
       }
     } catch (error) {
-      setError(error.response?.data?.error || 'Sign up failed. Please try again.');
+      console.error('Unexpected signup error:', error);
+      setError(error.response?.data?.error || error.message || 'Sign up failed. Please try again.');
     } finally {
       setLoading(false);
     }

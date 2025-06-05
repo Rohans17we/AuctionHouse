@@ -59,7 +59,6 @@ const SignUp = () => {
       });      // Log the full result for debugging
       console.log('Signup result:', result);
       
-      // Now the backend always returns { success: true/false, message: string }
       if (result && result.success) {
         console.log('Signup successful, navigating to login');
         // Clear form and navigate to login
@@ -70,9 +69,11 @@ const SignUp = () => {
         navigate('/login', { 
           replace: true,
           state: { message: result.message || 'Account created successfully! Please log in.' }
-        });      } else {
+        });
+      } else {
         // If success is false, there should be an error message
         console.error('Signup failed:', result);
+        // Make sure we're extracting the error message correctly
         setError(result?.error || result?.message || 'Sign up failed. Please try again.');
       }
     } catch (err) {
