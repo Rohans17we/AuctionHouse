@@ -1,0 +1,320 @@
+.asset-management {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  color: #111;
+}
+
+.asset-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.asset-header h1 {
+  color: #222;
+  margin: 0;
+}
+
+.create-asset-btn {
+  background-color: #222;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.create-asset-btn:hover {
+  background-color: #111;
+}
+
+.asset-form-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+.asset-form-container h2 {
+  color: #222;
+  margin: 0 0 1.5rem 0;
+}
+
+.asset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #222;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus {
+  border-color: #444;
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.submit-btn,
+.cancel-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn {
+  background-color: #222;
+  color: #fff;
+}
+
+.submit-btn:hover {
+  background-color: #111;
+}
+
+.cancel-btn {
+  background-color: #e0e0e0;
+  color: #222;
+}
+
+.cancel-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.submit-btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.asset-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.asset-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.asset-content {
+  padding: 1.5rem;
+}
+
+.asset-content h3 {
+  margin: 0.5rem 0;
+  color: #222;
+  font-size: 1.25rem;
+}
+
+.asset-status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.asset-status.Draft {
+  background-color: #e0e0e0;
+  color: #222;
+}
+
+.asset-status.OpenToAuction {
+  background-color: #e8e8e8;
+  color: #444;
+}
+
+.asset-status.Active {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.asset-retail-value {
+  color: #222;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.asset-description {
+  color: #444;
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+.asset-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.edit-btn,
+.delete-btn,
+.open-auction-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex: 1;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #222;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #111;
+}
+
+.open-auction-btn {
+  background-color: #444;
+  color: #fff;
+}
+
+.open-auction-btn:hover {
+  background-color: #333;
+}
+
+.delete-btn {
+  background-color: #888;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.delete-btn::before {
+  content: "🗑️";
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background-color: #666;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #f5c6cb;
+  font-weight: 500;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #c3e6cb;
+  font-weight: 500;
+}
+
+.loading {
+  text-align: center;
+  color: #222;
+  padding: 2rem;
+}
+
+.no-assets {
+  text-align: center;
+  color: #222;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.no-assets p {
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.no-assets-btn {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .asset-management {
+    padding: 1rem;
+  }
+  
+  .asset-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .assets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .asset-actions {
+    flex-direction: column;
+  }
+}

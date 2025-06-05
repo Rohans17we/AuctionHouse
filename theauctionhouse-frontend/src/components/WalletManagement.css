@@ -1,0 +1,265 @@
+.wallet-management {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  color: #111;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wallet-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.wallet-header h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.wallet-balances {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.balance-card {
+  background: white;
+  color: #2c3e50;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.balance-card:hover {
+  transform: translateY(-2px);
+}
+
+.balance-card.blocked {
+  border: 2px solid #dc3545;
+}
+
+.balance-card.blocked.error {
+  background-color: #fff8f8;
+}
+
+.balance-card.available {
+  border: 2px solid #28a745;
+}
+
+.warning-message {
+  background-color: #ffecec;
+  color: #d63031;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  border: 1px solid #f8d7da;
+}
+
+.balance-card.error {
+  border-color: #d63031;
+  box-shadow: 0 2px 8px rgba(214, 48, 49, 0.15);
+}
+
+.balance-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.balance-amount {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.balance-amount.primary {
+  color: #2c3e50;
+}
+
+.balance-amount.warning {
+  color: #dc3545;
+}
+
+.balance-amount.success {
+  color: #28a745;
+}
+
+.balance-info, .blocked-info {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.blocked-details {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.blocked-details h3 {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.bid-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.bid-entry:last-child {
+  border-bottom: none;
+}
+
+.bid-amount {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.bid-info {
+  color: #6c757d;
+}
+
+.balance-card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.balance-amount {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.wallet-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.action-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.action-card h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.add-funds-btn {
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-funds-btn:hover:not(:disabled) {
+  background-color: #111;
+}
+
+.withdraw-funds-btn {
+  width: 100%;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.withdraw-funds-btn:hover:not(:disabled) {
+  background-color: #111;
+}
+
+.add-funds-btn:disabled,
+.withdraw-funds-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #eee;
+  color: #222;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+
+.success-message {
+  background-color: #f5f5f5;
+  color: #222;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .wallet-management {
+    padding: 1rem;
+  }
+  
+  .wallet-actions {
+    grid-template-columns: 1fr;
+  }
+  
+  .balance-amount {
+    font-size: 2rem;
+  }
+}
